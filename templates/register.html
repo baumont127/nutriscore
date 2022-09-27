@@ -1,0 +1,68 @@
+{% extends('base.html') %}
+
+{% block content %}
+<div class="container">
+<div class="instruction">2 - Remplissez les valeurs</div>
+<table>
+    <thead>
+        <tr>
+            <th>Valeurs nutritionnelles</th>
+            <th>Quantité</th>
+
+        </tr>
+    </thead>
+
+
+ <table>
+   <div class="container">
+     <h1>Creation de compte</h1>
+     <p>Merci pour les informations</p>
+
+   <form action="" method="post">
+           {{ form.hidden_tag() }}
+
+           <div class="form-group">
+
+         {{ form.email.label(class='form-label') }}
+         {{form.email(class='form-input') }}
+
+               {% for error in form.email.errors %}
+               {{ error }}
+   </div>
+               {% endfor %}
+
+<div class="form-group">
+                  <td>{{ form.password.label(class='form-label') }}</td>
+                <td>{{ form.password(class='form-input') }}</td>
+
+               {% for error in form.password.errors %}
+                   {{ error }}
+
+           </div>
+                 {% endfor %}
+
+           <div class="form-group">
+               {{ form.amount.label(class='form-label') }}
+                 {{ form.amount(class='form-input') }}
+
+                  {% for error in form.amount.errors %}
+                       {{ error }}
+                   {% endfor %}
+
+           </div>
+                  <div class="form-group">
+               {{ form.magie.label(class='form-label') }}
+                 {{ form.magie(class='form-input') }}
+
+                  {% for error in form.magie.errors %}
+                       {{ error }}
+                   {% endfor %}
+           {{ form.submit(class='btn btn-primary') }}
+          </div>
+ </table>
+
+     </form>
+
+   </div>
+</div>
+{% endblock %}

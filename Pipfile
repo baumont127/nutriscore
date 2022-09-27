@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+numpy = "*"
+joblib = "*"
+pandas = "*"
+jupyter = "*"
+notebook = "*"
+seaborn = "*"
+scipy = "*"
+plotly = "*"
+matplotlib = "*"
+imbalanced-learn = "*"
+wget = "*"
+scikit-learn = "*"
+flask-wtf = "*"
+email-validator = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"

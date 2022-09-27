@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+   <title>{{ title  if title}}</title>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='nutr.css') }}">
+
+</head>
+<body>
+<header class="navbar text-light bg-dark">
+      <section class="navbar-section">
+          <a href="{{ url_for('index')}}" class="navbar-brand mr-2">PREDICT OPEN FOOD FACTS</a>
+          <a href="{{ url_for('profil')}}" class="btn btn-link">profil</a>
+          <a href="{{ url_for('blog')}}" class="btn btn-link">blog</a>
+          <a href="{{ url_for('faq')}}" class="btn btn-link">faq</a>
+          <a href="{{ url_for('nutriscore')}}" class="btn btn-link">nutriscore</a>
+          <a href="{{ url_for('nutri')}}" class="btn btn-link">nutri</a>
+          <a href="{{ url_for('score')}}" class="btn btn-link">score</a>
+          <a href="{{ url_for('register')}}" class="btn btn-link">register</a>
+      </section>
+      <section class="navbar-section">
+          <i class="icon icon-people"></i>&nbsp{{ session['user']['username'] if session['user'] else 'Invité' }}&nbsp
+          {% if session['user'] %}
+              <a href="{{ url_for('logout')}}" class="btn btn-link">Logout</a>&nbsp
+          {% else %}
+              <a href="{{ url_for('login')}}" class="btn btn-link">Login</a>&nbsp
+            {% endif%}
+        <div class="input-group input-inline">
+          <input class="form-input" type="text" placeholder="search">
+          <button class="btn btn-primary input-group-btn">Search</button>
+       </div>
+      </section>
+
+    </header>
+ <div class="container">
+
+      {% block content  %}{% endblock %}
+
+ </div>
+        <script src='{{ url_for('static', filename='nutr.js') }}' charset="utf-8"></script>
+
+</body>
+</html>
